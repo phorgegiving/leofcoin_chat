@@ -7,7 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leofcoin web node</title>
   </head>
+  
   <body>
+  <script>
+    const ws = new WebSocket(location.protocol === 'https:' ? 'wss://' + location.host : 'ws://' + location.host, 'reload-app')
+    ws.addEventListener('open', () => {
+      ws.addEventListener('message', () => location.reload())
+    })
+    
+  </script>
+  
     <style>
       html,
       body {
